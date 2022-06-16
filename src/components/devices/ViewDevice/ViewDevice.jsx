@@ -26,7 +26,8 @@ return (
         <>
             <section className="view-device">
                 <div className="container">
-                    <h2>Device Details</h2>
+                    <h2 className='my-3'>Device Details</h2>
+                    <Link to={`/devices/add`} className='btn btn-sm btn-outline-primary mx-1'> Add Device</Link>
                 <table className="table table-striped table-hover table-responsive">
                     <thead>
                         <tr>
