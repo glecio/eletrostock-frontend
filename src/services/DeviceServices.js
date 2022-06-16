@@ -18,6 +18,13 @@ export class DeviceService {
         return axios.get(dataURL);
     }
     
+    static addBrand(name) {
+        let data = `${name}`;
+        let dataURL = `${this.serverURL}/devices/${name}`;
+        console.log(name)   
+        return axios.post(data);
+    }
+
     static getAllBrands() {
         let dataURL = `${this.serverURL}/brands`;
         return axios.get(dataURL);
@@ -27,6 +34,8 @@ export class DeviceService {
         let dataURL = `${this.serverURL}/brands/${id}`;
         return axios.get(dataURL);
     }
+
+    
 
 
 }
