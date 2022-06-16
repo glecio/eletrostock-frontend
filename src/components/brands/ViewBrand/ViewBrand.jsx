@@ -2,6 +2,7 @@ import React  from 'react';
 import { DeviceService } from "../../../services/DeviceServices";
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
+import { Link } from 'react-router-dom';
 
 let BrandView = () => {
     const [brand, setBrand] = useState([]);
@@ -20,18 +21,18 @@ let BrandView = () => {
         };
     fetchData();
 }, []);
-console.log({brand})
+
 return (
         <>
             <div className="container">
-            <h2>Brand Detail</h2>
+            <h2 className='my-3'>Brand Detail</h2>
+            <Link to={`/brands/add`} className='btn btn-sm btn-outline-primary mx-1'> Add Brand</Link>
             <table className="table table-striped table-hover table-responsive">
             <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Actions</th>
-
-                    </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
                 </thead>
                 <tbody>
                         <tr>
@@ -39,8 +40,7 @@ return (
                            
                             <td>
                                 <button type="button" className="btn btn-outline-primary mx-2">Edit</button>
-                                <button type="button" className="btn btn-outline-primary">Delete</button>
-
+                                <button type="button" className="btn btn-outline-danger">Delete</button>
                             </td>
 
                         </tr>
