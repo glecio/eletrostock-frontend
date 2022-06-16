@@ -26,21 +26,23 @@ return (
         <>
             <div className="container">
                 <h2>Brands List</h2>
-                <table class="table table-striped table-hover">
+                <Link to={`/brands/add`} className='btn btn-sm btn-outline-primary mx-1'> Add Brand</Link>
+
+                <table className="table table-striped table-hover">
                 <thead>
                         <tr>
                             <th scope="col">Name</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" className='text-center'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {brands?.map((brand) => 
                             <tr>
-                                <td>{brand.name}</td>
-                                <td>
-                                    <Link to={`/brands/view/${brand.id}`} className='btn btn-primary mx-2'> View</Link>
-                                    <Link to={`/brands/edit/${brand.id}`} className='btn btn-primary mx-2'> Edit</Link>
-                                    <Link to={`/brands/view/${brand.id}`} className='btn btn-primary mx-2'> Delete</Link>
+                                <td className='col-6' >{brand.name}</td>
+                                <td className='col-6 text-center'>
+                                    <Link to={`/brands/view/${brand.id}`} className='btn btn-sm btn-outline-primary mx-1'> View</Link>
+                                    <Link to={`/brands/edit/${brand.id}`} className='btn btn-sm btn-outline-success mx-1'> Edit</Link>
+                                    <Link to={`/brands/view/${brand.id}`} className='btn btn-sm btn-outline-danger mx-1'> Delete</Link>
                                 </td>
                             </tr>
                         )}
