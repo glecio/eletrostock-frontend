@@ -23,32 +23,19 @@ let DeviceList = () => {
 }, []);
 
 let clickDelete = async(deviceId) => {
-    try {
-        let response = await DeviceService.deleteDevice(deviceId);
-        if (response ) {
-            //setState({...state, loading: true});
-            let response = await DeviceService.getAllDevices();
-            setState(
-                {
-                  
-                }
-            )
-        }
-        
-    } catch (error) {
-        
-    }
+     console.log(deviceId)
 }
 
 return (
         <>
             <div className="container">
-                <h2>Devices List</h2>
+                <h2 className='my-3'>Devices List</h2>
+                <Link to={`/devices/add`} className='btn btn-sm btn-outline-primary mx-1'> Add Device</Link>
                 <table className="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
-                            <th scope="col col-3">Description</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Voltage</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Actions</th>
@@ -65,14 +52,13 @@ return (
                                     {device.brand_id}
                                 </td>
                                 <td>
-                                    <button type="button" className="btn btn-sm btn-outline-primary mx-2">View</button>
-                                    <button type="button" className="btn btn-sm btn-outline-primary mx-2">Edit</button>
-                                    <button type="button mx-2" 
-                                            className="btn btn-sm btn-outline-danger"
-                                            onClick={() => clickDelete(device.id)}
-                                    >
-                                                Delete
-                                    </button>
+                                <Link to={`/devices/view/${device.id}`} className='btn btn-sm btn-outline-primary mx-1'> View</Link>
+                                <Link to={`/devices/edit/${device.id}`} className='btn btn-sm btn-outline-success mx-1'> Edit</Link>
+                                <Link to={``} 
+                                        className='btn btn-sm btn-outline-danger mx-1' 
+                                        onClick={() => clickDelete(device.id)}
+                                > Delete</Link>
+                                
                                 </td>
 
                             </tr>
