@@ -24,35 +24,36 @@ let DeviceView = () => {
 console.log({device})
 return (
         <>
-            <div className="container">
-            <h2>Device Details</h2>
-            <table className="table table-striped table-hover table-responsive">
-            <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Voltage</th>
-                        <th scope="col">Brand</th>
-                        <th scope="col">Actions</th>
-
-                    </tr>
-                </thead>
-                <tbody>
+            <section className="view-device">
+                <div className="container">
+                    <h2>Device Details</h2>
+                <table className="table table-striped table-hover table-responsive">
+                    <thead>
                         <tr>
-                            <td>{device.name}</td>
-                            <td>{device.description}</td>
-                            <td>{device.voltage}</td>
-                            <td>{device.brand}</td>
-                            <td>
-                                <Link to={'device/edit'}> Edit</Link>
-                                <Link to={`/device/view/${device.id}`} className='btn btn-primary my-2'> Delete</Link>
-                            </td>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Voltage</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Actions</th>
 
                         </tr>
-                </tbody>
-            </table>   
-            </div> 
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{device.name}</td>
+                                <td className='col-5'>{device.description}</td>
+                                <td>{device.voltage}</td>
+                                <td>{device.brand}</td>
+                                <td>
+                                    <Link to={'/devices/edit'} className='btn btn-sm btn-outline-primary my-2'> Edit</Link>
+                                    <Link to={`/devices/view/${device.id}`} className='btn btn-sm btn-outline-danger my-2'> Delete</Link>
+                                </td>
 
+                            </tr>
+                    </tbody>
+                </table>   
+                </div> 
+            </section>
         </>
     )
 };
